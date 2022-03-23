@@ -1,5 +1,7 @@
 package com.myapp.pma.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +19,16 @@ public class ProjectController {
 	// 스피링에서 repository 객체를 처음에 자동생성하여 가지고 있다가 Autowired를 만나면 관련 객체가 필요할때 자동으로 연결해줌  
 	@Autowired
 	private ProjectRepository projectRepository;
-
-	@GetMapping("/new")
+	
+	@GetMapping("/")
 	public String displayProjectForm(Model model) {
+		List<Project> projectList = projectRepository.findAll();
+		model.addAttribute("projectList", projectList);
+		return "projects/projectList";
+	}
+	
+	@GetMapping("/new")
+	public String newProjectForm(Model model) {
 		Project p = new Project();
 		model.addAttribute("project", p);
 		return "projects/new-project";
@@ -28,6 +37,6 @@ public class ProjectController {
 	@PostMapping("/save")
 	public String createProject(Project project) {
 		projectRepository.save(project);	// project객체를 DB의 테이블에 저장
-		return "redirect:/projects/new";	// post-redirect-get 패턴(/new > /save > /new)
+		return "redirect:/projects/";	// post-redirect-get 패턴(/new > /save > /new)
 	}
 }
