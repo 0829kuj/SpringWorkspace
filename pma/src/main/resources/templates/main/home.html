@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layouts :: Head"></head>
+  <body>
+    <nav th:replace="layouts :: Navbar"></nav>
+    <div class="container">
+      <h3>프로젝트 진행상황</h3>
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>프로젝트 이름</th>
+            <th>현재 진행상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 타임리프의 반복문 -->
+          <tr th:each="project : ${projectList}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.stage}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+    <div class="container">
+      <h3>직원 현황</h3>
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>성</th>
+            <th>이름</th>
+            <th>이메일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="employee : ${employeeList}">
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.email}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

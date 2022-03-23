@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layouts :: Head"></head>
+  <body>
+    <nav th:replace="layouts :: Navbar"></nav>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>성</th>
+            <th>이름</th>
+            <th>이메일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="employee : ${employeeList}">
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.email}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="/employees/new" method="post" th:object="${employee}">
+        <button class="btn btn-primary" type="button">새 직원 추가</button>
+      </form>
+    </div>
+  </body>
+</html>

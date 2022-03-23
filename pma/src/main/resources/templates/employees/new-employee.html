@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="layouts :: Head"></head>
+  <body>
+    <nav th:replace="layouts :: Navbar"></nav>
+    <div class="container">
+      <form action="/employees/save" method="post" th:object="${employee}">
+        <div class="row my-2">
+          <input class="form-control" type="text" th:field="*{lastName}" placeholder="성" />
+        </div>
+        <div class="row my-2">
+          <input class="form-control" type="text" th:field="*{firstName}" placeholder="이름" />
+        </div>
+        <div class="row my-2">
+          <input class="form-control" type="email" th:field="*{email}" placeholder="이메일 주소" />
+        </div>
+        <button class="btn btn-primary" type="submit">새 직원 추가</button>
+      </form>
+    </div>
+  </body>
+</html>
