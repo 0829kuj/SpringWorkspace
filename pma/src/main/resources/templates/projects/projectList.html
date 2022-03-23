@@ -4,21 +4,22 @@
   <body>
     <nav th:replace="layouts :: Navbar"></nav>
     <div class="container">
-      <form action="/projects/save" method="post" th:object="${project}">
-        <div class="row my-2">
-          <input class="form-control" type="text" th:field="*{name}" placeholder="프로젝트 이름" />
-        </div>
-        <div class="row my-2">
-          <select class="form-select" th:field="*{stage}">
-            <option th:value="시작전">시작전</option>
-            <option th:value="진행중">진행중</option>
-            <option th:value="완료">완료</option>
-          </select>
-        </div>
-        <div class="row my-2">
-          <textarea class="form-control" th:field="*{description}" placeholder="프로젝트 설명"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">새 프로젝트</button>
+      <table>
+        <thead>
+          <tr>
+            <th>프로젝트명</th>
+            <th>현재 진행상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="project : ${projectList}">
+            <td th:text="${project.name}"></td>
+            <td th:text="${project.stage}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="/project/new" method="post" th:object="${project}">
+        <button class="btn btn-primary" type="button">새 프로젝트 추가</button>
       </form>
     </div>
   </body>
