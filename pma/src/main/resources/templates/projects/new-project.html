@@ -18,8 +18,18 @@
         <div class="row my-2">
           <textarea class="form-control" th:field="*{description}" placeholder="프로젝트 설명"></textarea>
         </div>
+        <!-- 직원 선택 태그 추가 -->
+        <div class="row my-2">
+          <p>직원들을 선택</p>
+          <!-- 선택태그의 매핑은 employee임. ${project.employees} = *{employees} -->
+          <select class="form-select" th:field="*{employees}" multiple>
+            <!-- 직원 전체를 옵션으로 출력 -->
+            <option th:each="employee : ${empList}" th:value="${employee.employeeId}" th:text="${employee.firstName}"></option>
+          </select>
+        </div>
         <button class="btn btn-primary" type="submit">새 프로젝트</button>
       </form>
     </div>
+    <footer th:replace="layouts :: footer"></footer>
   </body>
 </html>

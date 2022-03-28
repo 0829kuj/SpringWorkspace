@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.myapp.pma.dao.EmployeeRepository;
 import com.myapp.pma.dao.ProjectRepository;
+import com.myapp.pma.entities.Employee;
 import com.myapp.pma.entities.Project;
 
 @Controller
@@ -19,6 +22,9 @@ public class ProjectController {
 	// 스피링에서 repository 객체를 처음에 자동생성하여 가지고 있다가 Autowired를 만나면 관련 객체가 필요할때 자동으로 연결해줌  
 	@Autowired
 	private ProjectRepository projectRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	@GetMapping("/")
 	public String displayProjectForm(Model model) {
@@ -31,6 +37,8 @@ public class ProjectController {
 	public String newProjectForm(Model model) {
 		Project p = new Project();
 		model.addAttribute("project", p);
+		List<Employee> empList = employeeRepository.findAll();
+		model.addAttribute("empList", empList);
 		return "projects/new-project";
 	}
 	

@@ -20,7 +20,8 @@
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-primary" href="/employees/new" type="button">새 직원 추가</a>
+      <a class="btn btn-primary" th:href="@{/employees/new}" type="button">새 직원 추가</a>
     </div>
+    <footer th:replace="layouts :: footer"></footer>
   </body>
 </html>
