@@ -22,4 +22,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 			+ "GROUP BY LAST_NAME ,FIRST_NAME, e.EMPLOYEE_ID "
 			+ "ORDER BY count DESC")
 	public List<EmployeeProject> employeeProjects();
+	
+	// 새로 만든 쿼리문. id입력해서 직원찾기. DB에서 검색하는 column명과 findBy'EmployeeId' 따옴표 안의 이름이 같아야함 
+	Employee findByEmployeeId(Long id);
 }

@@ -17,7 +17,6 @@ public class AppErrorController implements ErrorController {
 	public String handleError(HttpServletRequest request) {
 		// 에러 상태 코드 확인
 		Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
-		System.out.println(status);
 		if(status != null) {	// 에러가 맞으면
 			Integer statusCode = Integer.valueOf(status.toString()); // 403, 403, 500 식의 코드로 바꿈
 			

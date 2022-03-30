@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 // 시큐리티 설정을 위해서는 1) WebSecurityConfigurerAdapter를 상속받아야하며 2) 어노테이션 EnableWebSecurity가 필요  
 @EnableWebSecurity
@@ -35,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	// 4) 허가
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {	
-		http.authorizeHttpRequests()
+		http.authorizeRequests()
 			.antMatchers("/projects/new").hasRole("ADMIN")		// 관리자의 허용범위 지정(새 프로젝트, 새 직원 추가 가능)
 			.antMatchers("/projects/save").hasRole("ADMIN")
 			.antMatchers("/employees/new").hasRole("ADMIN") 
@@ -43,7 +44,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/employees").authenticated()			// 인증된 유저(로그인 한 모든 유저)에게만 허용
 			.antMatchers("/projects").authenticated()
 			.antMatchers("/","/**").permitAll()						// 그 외 페이지는 인증과 관계없이 모두에게 열람허용
-			.and().formLogin();
+			.and().formLogin(form -> form.loginPage("/login").permitAll())	// 커스텀 로그인 페이지 추가
+			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 	// 로그아웃 추가
 //			.and().exceptionHandling().accessDeniedPage("/"); //예외 발생시 기본페이지로
 		// 시큐리티에서는 기본적으로 csrf방지가 적용됨
 //		http.csrf().disable();	
