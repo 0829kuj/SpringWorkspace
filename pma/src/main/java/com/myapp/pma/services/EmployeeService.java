@@ -31,4 +31,12 @@ public class EmployeeService {
 		return employeeRepository.findByEmployeeId(id);
 	}
 
+	public void update(Employee employee) {
+		Employee emp = employeeRepository.findByEmployeeId(employee.getEmployeeId());
+		emp.setFirstName(employee.getFirstName());
+		emp.setLastName(employee.getLastName());
+		emp.setEmail(employee.getEmail());		
+		employeeRepository.save(emp);
+	}
+
 }

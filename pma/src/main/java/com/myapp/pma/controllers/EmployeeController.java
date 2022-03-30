@@ -35,9 +35,18 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/save")
-	public String createProject(Employee employee) {
-		employeeService.save(employee); 	//DB에 employee객체를 테이블에 저장
-		return "redirect:/employees/new"; 	//post-redirect-get 패턴
+	public String createEmployee(Employee employee) {
+//		employeeService.save(employee); 	//DB에 employee객체를 테이블에 저장
+		Long id = employee.getEmployeeId();
+		if (id != null) {
+			employeeService.update(employee);
+		} else {
+			employeeService.save(employee);
+		}
+		
+		return "redirect:/employees/";
+		
+//		return "redirect:/employees/new"; 	//post-redirect-get 패턴
 	}
 	
 	@GetMapping("/update")

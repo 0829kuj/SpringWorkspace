@@ -37,12 +37,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {	
 		http.authorizeRequests()
-			.antMatchers("/projects/new").hasRole("ADMIN")		// 관리자의 허용범위 지정(새 프로젝트, 새 직원 추가 가능)
-			.antMatchers("/projects/save").hasRole("ADMIN")
-			.antMatchers("/employees/new").hasRole("ADMIN") 
-			.antMatchers("/employees/save").hasRole("ADMIN")
-			.antMatchers("/employees").authenticated()			// 인증된 유저(로그인 한 모든 유저)에게만 허용
-			.antMatchers("/projects").authenticated()
+//			.antMatchers("/projects/new").hasRole("ADMIN")		// 관리자의 허용범위 지정(새 프로젝트, 새 직원 추가 가능)
+//			.antMatchers("/projects/save").hasRole("ADMIN")
+//			.antMatchers("/employees/new").hasRole("ADMIN") 
+//			.antMatchers("/employees/save").hasRole("ADMIN")
+//			.antMatchers("/employees").authenticated()			// 인증된 유저(로그인 한 모든 유저)에게만 허용
+//			.antMatchers("/projects").authenticated()
 			.antMatchers("/","/**").permitAll()						// 그 외 페이지는 인증과 관계없이 모두에게 열람허용
 			.and().formLogin(form -> form.loginPage("/login").permitAll())	// 커스텀 로그인 페이지 추가
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 	// 로그아웃 추가
