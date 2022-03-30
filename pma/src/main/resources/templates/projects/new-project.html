@@ -4,9 +4,9 @@
   <body>
     <nav th:replace="layouts :: Navbar"></nav>
     <div class="container">
-      <form action="/projects/save" method="post" th:object="${project}">
+      <form th:action="@{/projects/save}" method="post" th:object="${project}">
         <div class="row my-2">
-          <input class="form-control" type="text" th:field="*{name}" placeholder="프로젝트 이름" />
+          <input class="form-control" th:field="*{name}" type="text" placeholder="프로젝트 이름" />
         </div>
         <div class="row my-2">
           <select class="form-select" th:field="*{stage}">
@@ -30,6 +30,6 @@
         <button class="btn btn-primary" type="submit">새 프로젝트</button>
       </form>
     </div>
-    <footer th:replace="layouts :: footer"></footer>
+    <footer th:replace="layouts :: Footer"></footer>
   </body>
 </html>

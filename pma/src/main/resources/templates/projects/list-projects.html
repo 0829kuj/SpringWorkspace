@@ -4,23 +4,24 @@
   <body>
     <nav th:replace="layouts :: Navbar"></nav>
     <div class="container">
+      <h3>프로젝트 진행 상황</h3>
+      <!-- th:href, th:src 주소에 "@{/}"(jsp <=request.contextPath>) -->
+      <a class="btn btn-outline-success my-3" th:href="@{/projects/new}">새 프로젝트 추가</a>
       <table class="table table-hover">
         <thead class="table-dark">
           <tr>
-            <th>프로젝트명</th>
+            <th>프로젝트 이름</th>
             <th>현재 진행상태</th>
-            <th>프로젝트 설명</th>
           </tr>
         </thead>
         <tbody>
+          <!-- 타임리프의 반복문 -->
           <tr th:each="project : ${projectList}">
             <td th:text="${project.name}"></td>
             <td th:text="${project.stage}"></td>
-            <td th:text="${project.description}"></td>
           </tr>
         </tbody>
       </table>
-      <a class="btn btn-primary" th:href="@{/projects/new}" type="button">새 프로젝트 추가</a>
     </div>
     <footer th:replace="layouts :: footer"></footer>
   </body>

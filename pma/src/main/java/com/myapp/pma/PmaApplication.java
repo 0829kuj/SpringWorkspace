@@ -6,15 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PmaApplication {
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(PmaApplication.class, args);
 	}
-
+	
 	// 프로젝트 실행 시 자동으로 DB에 데이터를 입력하는 코드
 //	@Bean
 //	CommandLineRunner runner() {
-//		return args-> {
+//		return args -> {
 //		};
 //	}
 }

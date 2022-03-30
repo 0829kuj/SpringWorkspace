@@ -2,8 +2,6 @@ const stages = document.querySelectorAll('.stage');
 let s1 = 0;
 let s2 = 0;
 let s3 = 0;
-
-// 각 stage의 텍스트컨텐츠(내용)이 셋 중 어느것에 해당하느냐에 따라 값을 +1 해줌. ===은 값과 타입을 모두 체크함.
 stages.forEach((stage) => {
   if (stage.textContent === '시작전') s1++;
   else if (stage.textContent === '진행중') s2++;

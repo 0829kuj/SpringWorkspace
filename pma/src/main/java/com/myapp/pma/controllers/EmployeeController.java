@@ -9,34 +9,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.myapp.pma.dao.EmployeeRepository;
 import com.myapp.pma.entities.Employee;
-import com.myapp.pma.entities.Project;
+import com.myapp.pma.services.EmployeeService;
 
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
+
+	@Autowired
+	private EmployeeService employeeService;
 	
-	@Autowired		// db에서 project테이블을 가져오기 위함 
-	private EmployeeRepository employeeRepository;
-	
-	@GetMapping("/")
+	@GetMapping
 	public String displayEmployeeForm(Model model) {
-		List<Employee> employeeList = employeeRepository.findAll();
-		model.addAttribute("employeeList", employeeList);
-		return "employees/employeeList";
+		List<Employee> empList = employeeService.findAll();
+		model.addAttribute("empList", empList);
+		return "employees/list-employees";
 	}
-	
+		
 	@GetMapping("/new")
 	public String newEmployeeForm(Model model) {
-		Employee e = new Employee(); 
+		Employee e = new Employee();
 		model.addAttribute("employee", e);
 		return "employees/new-employee";
 	}
 	
 	@PostMapping("/save")
-	public String createEmployee(Employee employee) {
-		employeeRepository.save(employee);
-		return "redirect:/employees/";
+	public String createProject(Employee employee) {
+		employeeService.save(employee); 	//DB에 employee객체를 테이블에 저장
+		return "redirect:/employees/new"; 	//post-redirect-get 패턴
 	}
+	
 }
