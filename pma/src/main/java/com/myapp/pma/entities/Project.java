@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Project {
@@ -21,8 +22,11 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long projectId;		//프로젝트 아이디 (CamelCase => DB project_id)
 	
+	@NotBlank(message="프로젝트 이름을 입력해주세요")
 	private String name;		//프로젝트 이름
 	private String stage;		//프로젝트 상태 (시작전, 진행중, 완료)
+	
+	@NotBlank(message="설명을 입력해주세요")
 	private String description; //설명
 	
 	// CascadeType.REMOVE CascadeType.PERSIST 제거

@@ -32,11 +32,18 @@ public class EmployeeService {
 	}
 
 	public void update(Employee employee) {
+		// 실제 DB에서 업데이트할 직원객체를 불러옴
 		Employee emp = employeeRepository.findByEmployeeId(employee.getEmployeeId());
+		// 필요한 내용만 업데이트
 		emp.setFirstName(employee.getFirstName());
 		emp.setLastName(employee.getLastName());
 		emp.setEmail(employee.getEmail());		
-		employeeRepository.save(emp);
+		employeeRepository.save(emp);	// 수정된 직원객체 emp를 저장함
+	}
+
+	public void deleteEmployeeById(long id) {
+		// 선태한 직원을 삭제하는 메서드
+		employeeRepository.deleteById(id);
 	}
 
 }

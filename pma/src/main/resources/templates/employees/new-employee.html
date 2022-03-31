@@ -8,12 +8,15 @@
       <form th:action="@{/employees/save}" method="post" th:object="${employee}">
         <div class="row my-2">
           <input class="form-control" th:field="*{lastName}" type="text" placeholder="성" />
+          <span style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">            
         </div>
         <div class="row my-2">
           <input class="form-control" th:field="*{firstName}" type="text" placeholder="이름" />
+          <span style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">  
         </div>
         <div class="row my-2">
           <input type="email" class="form-control" th:field="*{email}" placeholder="이메일" />
+          <span style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">  
         </div>
         <input type="hidden" th:field="*{employeeId}" />
         <button class="btn btn-primary" type="submit">저장</button>
