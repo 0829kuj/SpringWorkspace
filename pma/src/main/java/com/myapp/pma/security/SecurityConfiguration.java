@@ -48,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 	// 로그아웃 추가
 //			.and().exceptionHandling().accessDeniedPage("/"); //예외 발생시 기본페이지로
 		// 시큐리티에서는 기본적으로 csrf방지가 적용됨
-//		http.csrf().disable();	
+		http.csrf().disable();		// REST API에서는 csrf설정을 끔
 		// csrf룰(사용자가 의도치않은 요청)에 걸리는 부분에 대해 막아줌(/save실행시 redirect로 요청을 보내게 되어있기때문) 												
 	}
 }
