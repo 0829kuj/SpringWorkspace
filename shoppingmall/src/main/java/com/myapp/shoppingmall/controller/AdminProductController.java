@@ -122,7 +122,6 @@ public class AdminProductController {
 			
 			Files.write(path, bytes);	// (저장주소, 데이터)
 		}
-		
 		return "redirect:/admin/products/add";
 	}
 	

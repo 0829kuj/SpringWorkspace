@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragments/head :: head-front"> </head>
+
+  <body>
+    <nav th:replace="/fragments/nav :: nav-front"></nav>
+
+    <main role="main" class="container-fluid mt-5">
+      <div class="row">
+        <div th:replace="/fragments/categories :: categories"></div>
+        <div class="col"></div>
+        <div class="col-8">
+          <!-- 카테고리 이름이 있으면 이름 그대로 사용, 없을시 모든상품 -->
+          <h2 class="display-3 mb-5" th:text="${categoryName} ?: '모든상품'"></h2>
+
+          <div class="row">
+            <div class="col-4" th:each="product : ${products}">
+              <p>
+                <img style="width: 200px" th:src="@{'/media/' + ${product.image}}" />
+              </p>
+              <h4 th:text="${product.name}"></h4>
+              <div class="decs" th:utext="${product.description}"></div>
+              <p th:text="${product.price}+' 원'"></p>
+            </div>
+          </div>
+          <!-- 부트스트랩 페이지네이션 -->
+          <nav class="mt-3" th:if="${count > perPage}">
+            <ul class="pagination">
+              <li class="page-item" th:if="${page > 0}">
+                <!-- ${#httpServletRequest.requestURI}는 현재 페이지의 주소를 뜻함 -->
+                <a th:href="@{${#httpServletRequest.requestURI}} + '?page=__${page-1}__'" class="page-link">이전</a>
+              </li>
+              <li class="page-item" th:each="number: ${#numbers.sequence(0, pageCount-1)}" th:classappend="${page==number} ? 'active' : ''">
+                <a th:href="@{${#httpServletRequest.requestURI}} + '?page=__${number}__'" class="page-link" th:text="${number+1}"></a>
+              </li>
+              <li class="page-item" th:if="${page < pageCount-1}">
+                <a th:href="@{${#httpServletRequest.requestURI}} + '?page=__${page+1}__'" class="page-link">다음</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+
+    <footer th:replace="/fragments/footer :: footer"></footer>
+  </body>
+</html>

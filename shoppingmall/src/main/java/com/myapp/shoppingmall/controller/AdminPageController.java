@@ -94,7 +94,6 @@ public class AdminPageController {
 			
 		} else {
 			page.setSlug(slug);	// 소문자, '-' 수정 된 slug를 업데이트
-			page.setSorting(100);
 			
 			pageRepo.save(page);
 		}

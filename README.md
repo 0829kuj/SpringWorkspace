@@ -10,4 +10,4 @@
 22.04.05 pma - RESTful api 직원수정/삭제, shoppingmall - home페이지 만들기, admin(관리자)페이지 만들기  
 22.04.06 shoppingmal - admin(관리자) 페이지 관리기능, 카테고리 만들기, 수정, 삭제  
 22.04.07 shoppingmal - admin(관리자) 상품페이지 만들기 (상품 등록, 수정, 삭제)  
-22.04.08 shoppingmal - admin(관리자) 페이지네이션, CK에디터 추가
+22.04.08 shoppingmal - admin(관리자) 페이지네이션, CK에디터 추가 / 홈페이지 navbar, 카테고리
