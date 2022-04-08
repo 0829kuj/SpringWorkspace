@@ -12,3 +12,9 @@ table.sorting tr:not(.home) {
   border: 1px dashed #ccc;
   /* 위치옮길 때 변경될 위치를 점선으로 미리보는 기능 */
 }
+
+/* CK 에디터 높이설정 */
+.ck.ck-content {
+  height: 15em;
+  /* 글자 15개 정도의 높이 */
+}
