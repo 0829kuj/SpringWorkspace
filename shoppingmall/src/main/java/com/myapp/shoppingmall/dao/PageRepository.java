@@ -1,10 +1,10 @@
-package com.myapp.shoppingmall.ado;
+package com.myapp.shoppingmall.dao;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.myapp.shoppingmall.entitys.Page;
+import com.myapp.shoppingmall.entites.Page;
 
 public interface PageRepository extends JpaRepository<Page, Integer> {
 	// JpaRepository상속 시 List<PAGE>로 리턴되는 findAll 등 여러 메서드가 추가됨.

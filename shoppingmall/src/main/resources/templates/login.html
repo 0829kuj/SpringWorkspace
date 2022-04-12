@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragments/head :: head-front"> </head>
+
+  <body>
+    <nav th:replace="/fragments/nav :: nav-front"></nav>
+
+    <main role="main" class="container-fluid mt-5">
+      <div class="row">
+        <div th:replace="/fragments/categories :: categories"></div>
+        <div class="col"></div>
+
+        <div class="col-6">
+          <div class="display-4">로그인</div>
+          <div class="alert alert-danger" th:if="${param.error}">유저ID 혹은 패스워드가 틀립니다.</div>
+          <form method="post" th:action="@{/login}">
+            <div class="form-group">
+              <label for="">유저ID</label>
+              <input type="text" class="form-control" name="username" id="username" placeholder="유저ID" />
+            </div>
+            <div class="form-group">
+              <label for="">비밀번호</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호" />
+            </div>
+            <button class="btn btn-danger">로그인</button>
+            <a class="btn btn-info" th:href="@{/register}">가입하기</a>
+          </form>
+        </div>
+
+        <div class="col"></div>
+      </div>
+    </main>
+
+    <footer th:replace="/fragments/footer :: footer"></footer>
+  </body>
+</html>

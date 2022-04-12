@@ -21,6 +21,13 @@
               <h4 th:text="${product.name}"></h4>
               <div class="decs" th:utext="${product.description}"></div>
               <p th:text="${product.price}+' 원'"></p>
+
+              <div style="position: relative">
+                <p>
+                  <a class="btn btn-primary addToCart" th:attr="data-id=${product.id}" th:href="@{'/cart/add/' + ${product.id}}">장바구니 추가</a>
+                </p>
+                <div class="btn btn-sm btn-success hide productAdded">추가됨!</div>
+              </div>
             </div>
           </div>
           <!-- 부트스트랩 페이지네이션 -->
@@ -43,5 +50,26 @@
     </main>
 
     <footer th:replace="/fragments/footer :: footer"></footer>
+    <script>
+      // 장바구니추가버튼을 눌렀을 때 이벤트
+      $('a.addToCart').click(function (e) {
+        e.preventDefault(); // a태그의 주소이동을 중단
+        // alert('장바구니 누름');
+        let $this = $(this);
+
+        let id = $this.attr('data-id'); // data-id속성에 담긴 product.id(위의 html코드 확인)를 가져와 id에 저장
+        let url = '/cart/add/' + id;
+        // Ajax GET주소는 url, 보내는 데이터{}는 없음, 결과데이텨는 data
+        $.get(url, {}, function (data) {
+          // console.log(data);
+          $('div.cart').html(data); // 장바구니 화면을 덮어쓰기
+        }).done(function () {
+          $this.parent().parent().find('div.productAdded').fadeIn(); // 시간을 들여 천천히 나타남
+          setTimeout(function () {
+            $this.parent().parent().find('div.productAdded').fadeOut(); // 1초에 걸쳐 사라짐
+          }, 1000);
+        });
+      });
+    </script>
   </body>
 </html>

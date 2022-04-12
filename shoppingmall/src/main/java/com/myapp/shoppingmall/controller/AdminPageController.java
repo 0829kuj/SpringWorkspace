@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.myapp.shoppingmall.ado.PageRepository;
-import com.myapp.shoppingmall.entitys.Page;
+import com.myapp.shoppingmall.dao.PageRepository;
+import com.myapp.shoppingmall.entites.Page;
 
 @Controller
 @RequestMapping("/admin/pages")

@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.myapp.shoppingmall.ado.CategoryRepository;
-import com.myapp.shoppingmall.ado.ProductRepository;
-import com.myapp.shoppingmall.entitys.Category;
-import com.myapp.shoppingmall.entitys.Product;
+import com.myapp.shoppingmall.dao.CategoryRepository;
+import com.myapp.shoppingmall.dao.ProductRepository;
+import com.myapp.shoppingmall.entites.Category;
+import com.myapp.shoppingmall.entites.Product;
 
 @Controller
 @RequestMapping("/category")

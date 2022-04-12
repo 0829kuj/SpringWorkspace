@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.myapp.shoppingmall.ado.CategoryRepository;
-import com.myapp.shoppingmall.entitys.Category;
-import com.myapp.shoppingmall.entitys.Page;
+import com.myapp.shoppingmall.dao.CategoryRepository;
+import com.myapp.shoppingmall.entites.Category;
+import com.myapp.shoppingmall.entites.Page;
 
 @Controller
 @RequestMapping("/admin/categories")

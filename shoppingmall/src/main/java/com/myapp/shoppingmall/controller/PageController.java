@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.myapp.shoppingmall.ado.PageRepository;
-import com.myapp.shoppingmall.entitys.Page;
+import com.myapp.shoppingmall.dao.PageRepository;
+import com.myapp.shoppingmall.entites.Page;
 
 /**
  * 
@@ -43,5 +43,9 @@ public class PageController {
 		return "page";
 	}
 	
+	@GetMapping("/login")	// 로그인 페이지로 이동
+	public String login(Model model) {
+		return "login";
+	}
 
 }

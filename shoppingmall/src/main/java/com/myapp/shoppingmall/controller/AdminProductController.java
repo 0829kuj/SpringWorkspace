@@ -25,10 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.myapp.shoppingmall.ado.CategoryRepository;
-import com.myapp.shoppingmall.ado.ProductRepository;
-import com.myapp.shoppingmall.entitys.Category;
-import com.myapp.shoppingmall.entitys.Product;
+import com.myapp.shoppingmall.dao.CategoryRepository;
+import com.myapp.shoppingmall.dao.ProductRepository;
+import com.myapp.shoppingmall.entites.Category;
+import com.myapp.shoppingmall.entites.Product;
 
 @Controller
 @RequestMapping("/admin/products")

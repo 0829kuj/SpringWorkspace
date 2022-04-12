@@ -18,3 +18,12 @@ table.sorting tr:not(.home) {
   height: 15em;
   /* 글자 15개 정도의 높이 */
 }
+
+div.productAdded {
+  position: absolute;
+  bottom: 5px;
+  left: 10em;
+}
+.hide {
+  display: none;
+}

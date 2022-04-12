@@ -1,4 +1,4 @@
-package com.myapp.shoppingmall.entitys;
+package com.myapp.shoppingmall.entites;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

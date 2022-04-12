@@ -1,11 +1,11 @@
-package com.myapp.shoppingmall.ado;
+package com.myapp.shoppingmall.dao;
 
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.myapp.shoppingmall.entitys.Product;
+import com.myapp.shoppingmall.entites.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer>{
 
