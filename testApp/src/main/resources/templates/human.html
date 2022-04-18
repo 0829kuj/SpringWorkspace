@@ -4,15 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>사용자 페이지</title>
   </head>
   <body>
-    <h2>Hello!</h2>
-    <table>
-      <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-      </tr>
-    </table>
+    <h2>사용자 페이지</h2>
+    <p th:text="${user.num}"></p>
+    <p th:text="${user.id}"></p>
+    <p th:text="${user.name}"></p>
   </body>
 </html>

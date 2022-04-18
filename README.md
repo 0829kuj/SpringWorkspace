@@ -16,5 +16,6 @@
 22.04.12 shoppingmal - 회원가입/로그인기능 추가, 시큐리티(허가, 인증)설정, 쇼핑몰 프로젝트 마무리
 
 22.04.13 mybatis - MyBatis 어노테이션을 이용한 DB매핑(user객체 CURD작업)  
-22.04.14 mybatis - MyBatis xml을 이용한 DB매핑, MyBatis를 이용한 게시판 만들기(1)  
-22.04.15
+22.04.14 mybatis - MyBatis xml을 이용한 DB매핑
+22.04.15 bbs - MyBatis를 이용한 게시판 만들기(1) - 구조생성, 게시글 등록  
+22.04.18 bbs - 게시판 만들기(2) 게시글 조회, 수정, 삭제

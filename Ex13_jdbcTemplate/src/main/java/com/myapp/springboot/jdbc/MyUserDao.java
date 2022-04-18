@@ -9,18 +9,18 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MyUserDao {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
- 
-    public List<MyUserDto> list() {
-        String query = "select * from myuser";
-        List<MyUserDto> list = jdbcTemplate.query(
-                query, new BeanPropertyRowMapper<MyUserDto>(MyUserDto.class));
-        
-//        for(UserDTO my : list) {
+//    @Autowired
+//    private JdbcTemplate jdbcTemplate;
+// 
+//    public List<MyUserDto> list() {
+//        String query = "select * from myuser";
+//        List<MyUserDto> list = jdbcTemplate.query(
+//                query, new BeanPropertyRowMapper<MyUserDto>(MyUserDto.class));
+//        
+//        for(MyUserDto my : list) {
 //            System.out.println(my);  
 //        }   
-        
-        return list;
-    }
+//        
+//        return list;
+//    }
 }
