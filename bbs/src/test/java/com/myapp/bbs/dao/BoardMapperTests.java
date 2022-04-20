@@ -11,6 +11,7 @@ import org.springframework.test.annotation.Rollback;
 
 import com.myapp.bbs.dao.BoardMapper;
 import com.myapp.bbs.model.BoardVO;
+import com.myapp.bbs.model.Criteria;
 
 import lombok.extern.java.Log;
 
@@ -62,12 +63,26 @@ public class BoardMapperTests {
 //		log.info("result : " + result);
 //	}
 	
-	@Test
-	public void testDelete() {
-		int result = boardMapper.delete(5);
-		log.info("result: " + result);
-	}
-	
+//	@Test
+//	public void testDelete() {
+//		int result = boardMapper.delete(5);
+//		log.info("result: " + result);
+//	}
 
+	// 페이징 테스트		
+//	 @Test
+//	 public void testGetListPaging() {
+//	     Criteria cri = new Criteria();
+//	     cri.setPageNum(2);
+//	     cri.setAmount(5);
+//	     List<BoardVO> list = boardMapper.getListPaging(cri);
+//	     list.forEach(board -> log.info("" + board));
+//	 }
 	
+	// 총 게시글 수
+	 @Test
+	 public void testGetTotal() {
+		 int result = boardMapper.getTotal();
+		 log.info("총 개시글 수: " + result);
+	 }
 }
