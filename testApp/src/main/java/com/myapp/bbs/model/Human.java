@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Human {
 	
-	private int num;
-	private String id;
-	private String name;
-	
+	private int idNum;		// 회원 일련번호
+	private String id;		// 회원 아이디
+	private String name;	// 회원 이름
 }

@@ -8,8 +8,30 @@
   </head>
   <body>
     <h2>사용자 페이지</h2>
-    <p th:text="${user.num}"></p>
-    <p th:text="${user.id}"></p>
-    <p th:text="${user.name}"></p>
+    <div>
+      <p th:text="${user.idNum}"></p>
+      <p th:text="${user.id}"></p>
+      <p th:text="${user.name}"></p>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="commnet : ${comm}">
+            <td th:text="${commnet.coNum}"></td>
+            <td th:text="${commnet.content}"></td>
+            <td th:text="${commnet.writer}"></td>
+            <td th:text="${commnet.regdate}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

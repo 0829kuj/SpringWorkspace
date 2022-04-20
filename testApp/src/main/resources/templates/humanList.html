@@ -7,13 +7,26 @@
     <title>사용자 리스트</title>
   </head>
   <body>
-    <h2>Hello!</h2>
+    <h2>모든 사용자</h2>
     <table>
-      <tr th:each="user : ${users}">
-        <td th:text="${user.num}"></td>
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-      </tr>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>ID</th>
+          <th>이름</th>
+          <th>더보기</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${users}">
+          <td th:text="${user.idNum}"></td>
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name}"></td>
+          <td>
+            <a th:href="@{/human/} + '__${user.idNum}__'">상세보기</a>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </body>
 </html>
