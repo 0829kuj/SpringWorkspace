@@ -12,6 +12,8 @@ public class Criteria {
 	
 	private int skip;	// 스킵할 게시물 수 ((pageNum - 1 ) * amount)
 	
+	private String keyword;	// 검색어 키워드
+	
 	// 기본생성자 => 기본세팅: pageNum = 1, amount = 10
 	public Criteria() {
 		this(1, 10);	// 전체 생성자를 통해 (1, 10)을 입력해 객체 생성
@@ -52,8 +54,18 @@ public class Criteria {
 		this.skip = skip;
 	}
 
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + "]";
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword + "]";
 	}
+
+
 }

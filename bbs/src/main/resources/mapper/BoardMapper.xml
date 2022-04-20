@@ -21,7 +21,11 @@
 	<select id="getListPaging" resultType="BoardVO">
 		SELECT * FROM (
 				SELECT bno, title, writer, regdate, updatedate
-				FROM board ORDER BY bno DESC) as T1
+				FROM board
+				<if test="keyword != null">
+					WHERE title LIKE concat('%', #{keyword}, '%')
+				</if> 
+				 ORDER BY bno DESC) as T1
 		LIMIT #{skip}, #{amount}
 	</select>
 	
@@ -42,7 +46,10 @@
 	
 	<!-- 게시글 총 갯수 -->
 	<select id="getTotal" resultType="int">
-		SELECT count(*) FROM board;
+		SELECT count(*) FROM board
+			<if test="keyword != null">
+				WHERE title LIKE concat('%', #{keyword}, '%')
+			</if> 
 	</select>
 
 </mapper>

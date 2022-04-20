@@ -81,8 +81,8 @@ public class BoardMapperTests {
 	
 	// 총 게시글 수
 	 @Test
-	 public void testGetTotal() {
-		 int result = boardMapper.getTotal();
+	 public void testGetTotal(Criteria cri) {
+		 int result = boardMapper.getTotal(cri);
 		 log.info("총 개시글 수: " + result);
 	 }
 }

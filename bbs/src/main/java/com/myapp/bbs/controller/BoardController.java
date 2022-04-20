@@ -59,7 +59,7 @@ public class BoardController {
 		// boardList에 페이징 된 모든 게시글을 전달
 		model.addAttribute("boardList", boardService.getListPaging(cri));
 		
-		int total = boardService.getTotal();
+		int total = boardService.getTotal(cri);
 		PageMakerDTO pmk = new PageMakerDTO(total, cri);	// 객체 생성 시 모든 변수 계산됨
 		
 		model.addAttribute("pmk", pmk);		// 페이지네이션을 위한 pmk객체 전달
@@ -74,15 +74,17 @@ public class BoardController {
 	 * @return 조회 페이지로 이동
 	 * */
 	@GetMapping("/get")
-	public String boardPageGet(@RequestParam("bno") int bno, Model model) {
+	public String boardPageGet(@RequestParam("bno") int bno, Model model, Criteria cri) {
 		model.addAttribute("board", boardService.getPage(bno));
+		model.addAttribute("cri", cri);
 		return "get";
 	}
 	
 	// 수정페이지 출력
 	@GetMapping("/modify")
-	public String boardModifyGet(@RequestParam("bno") int bno, Model model) {
+	public String boardModifyGet(@RequestParam("bno") int bno, Model model, Criteria cri) {
 		model.addAttribute("board", boardService.getPage(bno));
+		model.addAttribute("cri", cri);
 		return "modify";
 	}
 	

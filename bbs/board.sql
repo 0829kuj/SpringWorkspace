@@ -28,6 +28,9 @@ INSERT INTO Products (prod_name, prod_price) values ('여름 토퍼', 35180);
 INSERT INTO Products (prod_name, prod_price) values ('페이크 삭스', 860);
 INSERT INTO Products (prod_name, prod_price) values ('우산', 2900);
 
+
+SELECT * FROM mybatis.board;
+
 DROP TABLE IF EXISTS board;
 create table board(
     bno int auto_increment primary key,
