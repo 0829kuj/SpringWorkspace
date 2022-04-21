@@ -5,6 +5,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.myapp.bbs.dao.BoardMapper">
+
+
+	<!-- 검색 조건문 WHERE절에 각각의 type가 있으면 추가해준다 -->
+	<sql id="criteria">
+		<trim prefix="where (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+	               <trim prefix="OR">
+	                   <choose>
+	                       <when test="type == 'T'.toString()">
+	                           title like concat('%',#{keyword},'%') 
+	                       </when>
+	                       <when test="type == 'C'.toString()">
+	                           content like concat('%',#{keyword},'%') 
+	                       </when>
+	                       <when test="type == 'W'.toString()">
+	                           writer like concat('%',#{keyword},'%' )
+	                       </when>
+	                   </choose>
+	               </trim>
+	           </foreach>
+		</trim>
+	</sql>
+	
+
 	<!-- 게시판 등록 -->
 	<select id="enroll" resultType="BoardVO">
 		INSERT INTO board (title, content, writer)
@@ -23,7 +47,7 @@
 				SELECT bno, title, writer, regdate, updatedate
 				FROM board
 				<if test="keyword != null">
-					WHERE title LIKE concat('%', #{keyword}, '%')
+					<include refid="criteria"></include>
 				</if> 
 				 ORDER BY bno DESC) as T1
 		LIMIT #{skip}, #{amount}
@@ -48,7 +72,7 @@
 	<select id="getTotal" resultType="int">
 		SELECT count(*) FROM board
 			<if test="keyword != null">
-				WHERE title LIKE concat('%', #{keyword}, '%')
+				<include refid="criteria"></include>
 			</if> 
 	</select>
 

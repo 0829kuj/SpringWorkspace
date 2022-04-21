@@ -1,5 +1,7 @@
 package com.myapp.bbs.model;
 
+import java.util.Arrays;
+
 /**
  * 페이지 계산을 위한 클래스
  * @author KIMeonjeong
@@ -13,6 +15,10 @@ public class Criteria {
 	private int skip;	// 스킵할 게시물 수 ((pageNum - 1 ) * amount)
 	
 	private String keyword;	// 검색어 키워드
+	
+	private String type;	// 검색 타입 (뷰에서 선택됨)
+	
+	private String[] typeArr;	// 검색 타입 배열 (type을 배열로 변환)
 	
 	// 기본생성자 => 기본세팅: pageNum = 1, amount = 10
 	public Criteria() {
@@ -62,10 +68,27 @@ public class Criteria {
 		this.keyword = keyword;
 	}
 
-	@Override
-	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword + "]";
+	public String getType() {
+		return type;
 	}
 
+	public void setType(String type) {
+		this.type = type;
+		// 검색할 타입만 설정되면 typeArr은 자동으로 생성
+		this.typeArr = type.split("");	// 한 문자씩 끊어서 배열로 만듦
+	}
 
+	public String[] getTypeArr() {
+		return typeArr;
+	}
+
+	public void setTypeArr(String[] typeArr) {
+		this.typeArr = typeArr;
+	}
+
+	@Override
+	public String toString() {
+		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
+				+ ", type=" + type + ", typeArr=" + Arrays.toString(typeArr) + "]";
+	}
 }

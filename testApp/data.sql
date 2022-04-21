@@ -31,4 +31,7 @@ insert into demo.comment(content, writer, target) values("방명록에 남기는
 insert into demo.comment(content, writer, target) values("방명록에 남기는 글귀_좌진아안녕", 1, 5);
 insert into demo.comment(content, writer, target) values("방명록에 남기는 글귀_길동아안녕", 2, 1);
 insert into demo.comment(content, writer, target) values("방명록에 남기는 글귀_길동아안뇽안뇽", 3, 1);
+insert into demo.comment(content, writer, target) values("방명록에 남기는 글귀_상현아안뇽안뇽", 3, 4);
 insert into demo.comment(content, writer, target) values("방명록에 남기는 글귀_길동아안뇽안뇽반갑다!", 5, 1);
+
+select * from comment where target = 1;

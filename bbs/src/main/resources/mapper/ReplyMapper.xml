@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.bbs.dao.ReplyMapper">
+
+	<!-- 덧글 등록 -->
+	<select id="enroll" resultType="ReplyVO">
+		INSERT INTO reply (reply_bno, content, writer)
+        VALUES (#{reply_bno}, #{content}, #{writer})
+	</select>
+
+	<!-- 덧글 목록 (게시글 번호 필요) -->
+	<select id="getReplyList" resultType="ReplyVO">
+		SELECT * FROM reply WHERE reply_bno = #{reply_bno}
+	</select>
+	
+	<!-- 덧글 수정 -->
+	<update id="modify">
+		UPDATE reply SET content = #{content}, updated_at = now() WHERE reply_no = #{reply_no}
+	</update>
+
+	<!-- 덧글 삭제 -->
+	<delete id="delete">
+		DELETE FROM reply WHERE reply_no = #{reply_no}
+	</delete>
+	
+</mapper>
