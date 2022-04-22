@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /*
- * Db의 reply테이블을 매핑
+ * DB의 reply테이블을 매핑
  * */
 @Getter
 @Setter
@@ -31,13 +31,6 @@ public class ReplyVO {
 	/* 댓글 업데이트 날짜 : AJAX JSON으로 보내기 포맷 */
 	@JsonFormat(pattern = "yyyy-MM-dd a hh:mm:ss") 
 	private LocalDateTime updated_at;
-
-	// 생성자: reply_no와 날짜시간은 자동생성
-	public ReplyVO(int reply_bno, String content, String writer) {
-		this.reply_bno = reply_bno;
-		this.content = content;
-		this.writer = writer;
-	} 
 
 	// 전체 생성자
 	public ReplyVO(int reply_no, int reply_bno, String content, String writer, LocalDateTime created_at,

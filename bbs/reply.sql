@@ -1,5 +1,5 @@
 CREATE TABLE `mybatis`.`reply` (
-  `reply_no` INT NOT NULL,
+  `reply_no` INT NOT NULL AUTO_INCREMENT,
   `reply_bno` INT NOT NULL,
   `content` VARCHAR(1000) NOT NULL,
   `writer` VARCHAR(45) NOT NULL,
@@ -13,3 +13,5 @@ CREATE TABLE `mybatis`.`reply` (
     ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
+
+SELECT * FROM mybatis.reply;

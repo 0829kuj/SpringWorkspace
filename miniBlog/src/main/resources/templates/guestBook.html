@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" th:href="@{/projects/new}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>방명록</title>
+  </head>
+  <body>
+    <h3>방명록</h3>
+    <form th:action="@{}" method="post" th:object="${guest}"></form>
+    <table>
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>대상</th>
+          <th>내용</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>수정일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="guest : ${GuestList}">
+          <td th:text="${guest.gno}"></td>
+          <td th:text="${guest.mno}"></td>
+          <td th:text="${guest.content}"></td>
+          <td th:text="${guest.writer}"></td>
+          <td th:text="${#temporals.format(guest.created_at , 'yyyy-MM-dd a hh:mm:ss')}"></td>
+          <td th:text="${#temporals.format(guest.updated_at , 'yyyy-MM-dd a hh:mm:ss')}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

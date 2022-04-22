@@ -84,6 +84,7 @@
     <!-- 오른쪽 숨김창 , JS 링크들 -->
     <hidden th:replace="fragments/hidden :: 숨김창"></hidden>
     <jslink th:replace="fragments/jslink :: 링크"></jslink>
+    <script th:src="@{/js/Fetch-API.js}"></script>
     <script>
       function deleteConfirm() {
         if (confirm('정말로 삭제할까요?')) {
@@ -107,10 +108,103 @@
         });
       });
 
+      // Fetch-API 라이브러리 객체
+      const http = new EasyHTTP();
+
       // 덧글달기 버튼 클릭 시 이벤트
       const replyButton = document.getElementById('reply-btn');
       replyButton.addEventListener('click', function () {
-        console.log('클릭됨!');
+        // console.log('클릭됨!');
+        const data = {
+          reply_bno: '[[${board.bno}]]',
+          content: document.getElementById('content').value,
+          writer: document.getElementById('writer').value,
+        };
+        http
+          .post('/reply', data)
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+
+        location.reload(); // 새로운 덧글입력을 마치면 새로고침
+      });
+
+      function updateReply(el) {
+        // console.log(el);
+        const 덧글내용 = el.parentElement.previousElementSibling.previousElementSibling;
+        const 덧글수정 = el.parentElement.previousElementSibling; // 수정할 수 있는 textarea창
+        const 삭제버튼 = el.nextElementSibling;
+
+        if (el.textContent == '수정') {
+          // 버튼 이름이 '수정'이면
+          덧글내용.style.display = 'none';
+          덧글수정.style.display = 'block';
+          삭제버튼.style.visibility = 'hidden'; // 덧글 수정중에는 삭제버튼이 필요없으니 삭제하지 않고 위치는 그대로이되 안보이게만 처리
+          el.textContent = '수정 완료';
+        } else {
+          // 수정이 되었으므로 서버에 update 요청
+          console.log(el.dataset.id);
+          const data = {
+            reply_no: el.dataset.id,
+            content: 덧글수정.value,
+          };
+
+          http
+            .put('/reply/', data)
+            .then((res) => (덧글내용.textContent = res.content))
+            .catch((err) => console.log(err));
+
+          덧글내용.style.display = 'block';
+          덧글수정.style.display = 'none';
+          삭제버튼.style.visibility = 'visible';
+          el.textContent = '수정';
+        }
+      }
+
+      function deleteReply(el) {
+        console.log(el.dataset.id);
+        if (confirm('정말 삭제하시겠습니까?')) {
+          // console.log('삭제함');
+          http
+            .delete('/reply/' + el.dataset.id)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
+          el.parentElement.parentElement.remove(); // li태그 객체 삭제
+        }
+      }
+
+      function replyListView(items) {
+        // 덧글을 입력할 태그 (ul)객체
+        const replyList = document.getElementById('reply-list');
+        let lis = ''; // 덧글들 변수 선언
+        // console.log(items);
+        items.forEach(function (item) {
+          let writer = item.writer;
+          let content = item.content;
+          let updateTime = item.updated_at;
+          let id = item.reply_no;
+
+          let li = `<li class="list-group-item" style="position: relative">
+        <div>${writer}  ( ${updateTime} ) </div>
+        <p class="mb-0">${content}</p>
+        <textarea class="w-100" style="display:none">${content}</textarea>
+        <div style="position: absolute; top: 10px; right: 10px">
+          <button class="badge bg-gradient-info ms-auto" onclick="updateReply(this)" data-id="${id}">수정</button>
+          <button class="badge bg-gradient-danger" onclick="deleteReply(this)" data-id="${id}">삭제</button>
+        </div>
+      </li>`;
+          lis += li; // 각각의 덧글데이터가 들어간 li태그를 더해줌
+        });
+        // 덧글 리스트에 실제 덧글들을 추가하여 화면에 출력되도록 함
+        replyList.innerHTML = lis;
+      }
+
+      // html문서가 준비되면 실행
+      document.addEventListener('DOMContentLoaded', function () {
+        // console.log('준비됨!');
+        http
+          .get('/reply/' + '[[${board.bno}]]')
+          .then((res) => replyListView(res))
+          .catch((err) => console.log(err));
       });
     </script>
   </body>
