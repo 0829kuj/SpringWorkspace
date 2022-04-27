@@ -1,71 +1,20 @@
-2022-04-18 15:25:25.301  INFO 11552 --- [restartedMain] com.myapp.pma.PmaApplication             : Starting PmaApplication using Java 11.0.2 on DESKTOP-F2F0JGO with PID 11552 (C:\java502\kimuj\SpringWorkspace\pma\target\classes started by admin in C:\java502\kimuj\SpringWorkspace\pma)
-2022-04-18 15:25:25.304 DEBUG 11552 --- [restartedMain] com.myapp.pma.PmaApplication             : Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-18 15:25:25.304  INFO 11552 --- [restartedMain] com.myapp.pma.PmaApplication             : No active profile set, falling back to 1 default profile: "default"
-2022-04-18 15:25:25.339  INFO 11552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-18 15:25:25.339  INFO 11552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-18 15:25:25.818  INFO 11552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-18 15:25:25.855  INFO 11552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 3 JPA repository interfaces.
-2022-04-18 15:25:26.304  INFO 11552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-04-18 15:25:26.371  INFO 11552 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1031 ms
-2022-04-18 15:25:26.516  INFO 11552 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/pma?useSSL=false&serverTimezone=Asia/Seoul'
-2022-04-18 15:25:27.277  INFO 11552 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-18 15:25:27.569  WARN 11552 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-18 15:25:27.680  INFO 11552 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure any request
-2022-04-18 15:25:27.929  INFO 11552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-04-18 15:25:27.944  WARN 11552 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-2022-04-18 15:25:27.946  INFO 11552 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-18 15:25:27.963  INFO 11552 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-04-18 15:25:27.977 ERROR 11552 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2022-04-18 15:25:50.918  INFO 9548 --- [restartedMain] com.myapp.pma.PmaApplication             : Starting PmaApplication using Java 11.0.2 on DESKTOP-F2F0JGO with PID 9548 (C:\java502\kimuj\SpringWorkspace\pma\target\classes started by admin in C:\java502\kimuj\SpringWorkspace\pma)
-2022-04-18 15:25:50.919 DEBUG 9548 --- [restartedMain] com.myapp.pma.PmaApplication             : Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-18 15:25:50.919  INFO 9548 --- [restartedMain] com.myapp.pma.PmaApplication             : No active profile set, falling back to 1 default profile: "default"
-2022-04-18 15:25:50.950  INFO 9548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-18 15:25:50.950  INFO 9548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-18 15:25:51.403  INFO 9548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-18 15:25:51.445  INFO 9548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 3 JPA repository interfaces.
-2022-04-18 15:25:51.870  INFO 9548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-04-18 15:25:51.934  INFO 9548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 983 ms
-2022-04-18 15:25:52.076  INFO 9548 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/pma?useSSL=false&serverTimezone=Asia/Seoul'
-2022-04-18 15:25:52.841  INFO 9548 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-18 15:25:53.135  WARN 9548 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-18 15:25:53.247  INFO 9548 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure any request
-2022-04-18 15:25:53.501  INFO 9548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-04-18 15:25:53.525  INFO 9548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-18 15:25:53.532  INFO 9548 --- [restartedMain] com.myapp.pma.PmaApplication             : Started PmaApplication in 2.891 seconds (JVM running for 3.414)
-2022-04-18 15:25:56.923  INFO 9548 --- [RMI TCP Connection(8)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-04-18 15:25:56.971  INFO 9548 --- [RMI TCP Connection(8)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-04-22 15:20:33.812  INFO 12196 --- [restartedMain] com.myapp.pma.PmaApplication             : Starting PmaApplication using Java 11.0.2 on DESKTOP-F2F0JGO with PID 12196 (C:\java502\kimuj\SpringWorkspace\pma\target\classes started by admin in C:\java502\kimuj\SpringWorkspace\pma)
-2022-04-22 15:20:33.813 DEBUG 12196 --- [restartedMain] com.myapp.pma.PmaApplication             : Running with Spring Boot v2.6.4, Spring v5.3.16
-2022-04-22 15:20:33.813  INFO 12196 --- [restartedMain] com.myapp.pma.PmaApplication             : No active profile set, falling back to 1 default profile: "default"
-2022-04-22 15:20:33.844  INFO 12196 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-04-22 15:20:33.844  INFO 12196 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-04-22 15:20:34.298  INFO 12196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-04-22 15:20:34.334  INFO 12196 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
-2022-04-22 15:20:34.747  INFO 12196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-04-22 15:20:34.816  INFO 12196 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 972 ms
-2022-04-22 15:20:34.970  INFO 12196 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/pma?useSSL=false&serverTimezone=Asia/Seoul'
-2022-04-22 15:20:35.742  INFO 12196 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-04-22 15:20:36.070  WARN 12196 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-04-22 15:20:36.187  INFO 12196 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure any request
-2022-04-22 15:20:36.447  INFO 12196 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-04-22 15:20:36.472  INFO 12196 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-22 15:20:36.479  INFO 12196 --- [restartedMain] com.myapp.pma.PmaApplication             : Started PmaApplication in 2.95 seconds (JVM running for 3.47)
-2022-04-22 15:20:38.637  INFO 12196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-04-22 15:20:38.639  INFO 12196 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-04-22 15:20:46.388  INFO 12196 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2022-04-22 15:20:46.434  INFO 12196 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-27 15:40:00.676  INFO 9520 --- [restartedMain] com.myapp.pma.PmaApplication             : Starting PmaApplication using Java 11.0.2 on DESKTOP-F2F0JGO with PID 9520 (C:\java502\kimuj\SpringWorkspace\pma\target\classes started by admin in C:\java502\kimuj\SpringWorkspace\pma)
+2022-04-27 15:40:00.679 DEBUG 9520 --- [restartedMain] com.myapp.pma.PmaApplication             : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-04-27 15:40:00.680  INFO 9520 --- [restartedMain] com.myapp.pma.PmaApplication             : No active profile set, falling back to 1 default profile: "default"
+2022-04-27 15:40:00.715  INFO 9520 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-27 15:40:00.716  INFO 9520 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-27 15:40:01.199  INFO 9520 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-27 15:40:01.243  INFO 9520 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2022-04-27 15:40:01.729  INFO 9520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-27 15:40:01.802  INFO 9520 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1086 ms
+2022-04-27 15:40:01.951  INFO 9520 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/pma?useSSL=false&serverTimezone=Asia/Seoul'
+2022-04-27 15:40:02.783  INFO 9520 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-27 15:40:03.096  WARN 9520 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-27 15:40:03.211  INFO 9520 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will not secure any request
+2022-04-27 15:40:03.459  INFO 9520 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-04-27 15:40:03.487  INFO 9520 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-27 15:40:03.494  INFO 9520 --- [restartedMain] com.myapp.pma.PmaApplication             : Started PmaApplication in 3.11 seconds (JVM running for 3.714)
+2022-04-27 15:40:09.066  INFO 9520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-04-27 15:40:09.068  INFO 9520 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-04-27 15:40:43.733  INFO 9520 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-04-27 15:40:43.783  INFO 9520 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

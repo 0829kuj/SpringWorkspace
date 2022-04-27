@@ -10,4 +10,5 @@ class MiniBlogApplicationTests {
 	void contextLoads() {
 	}
 
+	
 }

@@ -19,3 +19,14 @@ insert into guestbook(mno, content, writer) values(1, '길동아 안녕안녕~~!
 insert into guestbook(mno, content, writer) values(1, '길동아 안녕안녕~~!!6', '공철수');
 
 select * from `miniblog`.`guestbook`;
+
+CREATE TABLE `miniblog`.`users` (
+  `mno` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`mno`)
+);
+select * from `miniblog`.`users`;
+
