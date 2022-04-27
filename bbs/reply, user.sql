@@ -15,3 +15,13 @@ CREATE TABLE `mybatis`.`reply` (
 );
 
 SELECT * FROM mybatis.reply;
+
+
+CREATE TABLE `mybatis`.`user` (
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
+  `name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`email`)
+);
+
+SELECT * FROM mybatis.user;
