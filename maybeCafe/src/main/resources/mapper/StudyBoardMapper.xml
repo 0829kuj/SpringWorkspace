@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.maybeCafe.dao.StudyBoardMapper">
+
+	<!-- 게시판 목록 -->
+	<select id="getStudyBoardList" resultType="StudyBoardVO">
+		SELECT * FROM studyboard ORDER BY sno DESC
+	</select>
+	
+	<!-- 단일 게시글 조회 -->
+	<select id="getPage" resultType="StudyBoardVO">
+		select * from studyboard WHERE sno = #{sno}
+	</select>
+	
+	<!-- 게시글 등록 -->
+	<select id="write" resultType="StudyBoardVO">
+		INSERT INTO studyboard (title, content, writer, hit, like_no)
+	       VALUES (#{title}, #{content}, #{writer}, 0, 0)
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM studyboard WHERE sno = #{sno}
+	</delete>
+	
+</mapper>

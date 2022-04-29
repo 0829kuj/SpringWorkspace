@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가입인사</title>
+  </head>
+  <body>
+    <h3>가입인사</h3>
+    <div>
+      <p><a th:href="@{/}">메인페이지</a></p>
+    </div>
+    <div>
+      <form th:action="@{/greetboard/write}" method="post" th:object="${board}">
+        <div>
+          <label for="content">내용</label>
+          <textarea th:field="*{content}" required></textarea>
+        </div>
+        <div>
+          <label for="writer">작성자</label>
+          <input type="text" th:field="*{writer}" required />
+        </div>
+        <button type="submit">가입인사 남기기</button>
+      </form>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>등록일</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="board : ${greetboard}">
+            <td><span th:text="${board.gno}"></span></td>
+            <td><span th:text="${#temporals.format(board.regdate , 'yyyy-MM-dd a hh:mm:ss')}"></span></td>
+            <td><span th:text="${board.writer}"></span></td>
+            <td><span th:text="${board.content}"></span></td>
+            <td><a th:href="@{/greetboard/delete(gno=${board.gno})}">삭제하기</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script th:if="${message}">
+      let m = '[[${message}]]'; // 리다이렉트로 넘어온 메시지 저장
+      alert(m); // 화면에 메시지 띄우기
+    </script>
+  </body>
+</html>

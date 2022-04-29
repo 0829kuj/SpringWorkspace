@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인 페이지</title>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <th>NO</th>
+          <td th:text="${board.sno}"></td>
+          <th>작성일</th>
+          <td th:text="${#temporals.format(board.regdate, 'yyyy-MM-dd a hh:mm:ss')}"></td>
+        </tr>
+        <tr>
+          <th>작성자</th>
+          <td th:text="${board.writer}"></td>
+          <th>수정일</th>
+          <td th:text="${#temporals.format(board.updatedate, 'yyyy-MM-dd a hh:mm:ss')}"></td>
+        </tr>
+        <tr>
+          <th>조회수</th>
+          <td th:text="${board.hit}"></td>
+        </tr>
+        <tr>
+          <th>추천수</th>
+          <td th:text="${board.like_no}"></td>
+        </tr>
+        <tr>
+          <th>제목</th>
+          <td th:text="${board.title}"></td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td th:text="${board.content}"></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <a th:href="@{/studyboard/list}">목록으로</a>
+      <a th:href="@{/studyboard/modify(sno=${board.sno})}">수정하기</a>
+      <button onclick="deleteConfirm();">삭제하기</button>
+    </div>
+    <script>
+      function deleteConfirm() {
+        if (confirm('정말로 삭제할까요?')) {
+          location.href = '/studyboard/delete?sno=' + '[[${board.sno}]]';
+        }
+      }
+    </script>
+  </body>
+</html>

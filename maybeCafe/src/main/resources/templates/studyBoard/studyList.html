@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공부 게시판</title>
+  </head>
+  <body>
+    <div>
+      <p><a th:href="@{/studyboard/write}">새 게시글 작성하기</a></p>
+      <p><a th:href="@{/}">메인페이지</a></p>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>TITLE</th>
+            <th>등록일</th>
+            <th>조회수</th>
+            <th>추천수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="board : ${studyboard}">
+            <td><span th:text="${board.sno}"></span></td>
+            <td>
+              <a th:href="@{/studyboard/get(sno=${board.sno})}"><span th:text="${board.title}"></span></a>
+            </td>
+            <td><span th:text="${#temporals.format(board.regdate , 'yyyy-MM-dd a hh:mm:ss')}"></span></td>
+            <td><span th:text="${board.hit}"></span></td>
+            <td><span th:text="${board.like_no}"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script th:if="${message}">
+      let m = '[[${message}]]'; // 리다이렉트로 넘어온 메시지 저장
+      alert(m); // 화면에 메시지 띄우기
+    </script>
+  </body>
+</html>
