@@ -41,4 +41,10 @@ public class StudyBoardServiceImpl implements StudyBoardService{
 		sBoardMapper.delete(sno);
 	}
 
+	@Override
+	public void modify(StudyBoardVO sBoardVO) {
+		sBoardMapper.modify(sBoardVO);
+	}
+
+
 }

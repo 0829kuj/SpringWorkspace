@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myapp.maybeCafe.model.GreetBoardVO;
@@ -33,6 +34,13 @@ public class GreetBoardController {
 	@PostMapping("/write")
 	public String greetWritePOST(GreetBoardVO board, RedirectAttributes attr) {
 		gBoardService.write(board);
+		return "redirect:/greetboard/list";
+	}
+	
+	@GetMapping("/delete")
+	public String greetDelete(@RequestParam("gno") int gno, RedirectAttributes attr) {
+		gBoardService.delete(gno);
+		attr.addFlashAttribute("message", "삭제되었습니다.");
 		return "redirect:/greetboard/list";
 	}
 }

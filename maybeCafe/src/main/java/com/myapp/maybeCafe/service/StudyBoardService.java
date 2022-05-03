@@ -11,6 +11,9 @@ public interface StudyBoardService {
 	
 	public void write(StudyBoardVO sBoardVO);	// 게시글 작성
 	
+	public void modify(StudyBoardVO sBoardVO);	// 게시글 수정
+	
 	public void delete(int sno);	// 게시글 삭제
+	
 
 }

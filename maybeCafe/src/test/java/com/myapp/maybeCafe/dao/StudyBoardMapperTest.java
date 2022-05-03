@@ -21,13 +21,13 @@ public class StudyBoardMapperTest {
 	@Autowired
 	private StudyBoardMapper sBoardMapper;
 
-//	@Test
+//	@Test	// 공부게시판 단일게시글 조회
 //	public void teststudyBoardGet() {
 //		int sno = 1;
 //		log.info("" + sBoardMapper.getPage(sno));
 //	}
 	
-//	@Test
+//	@Test	// 공부게시판 새게시글 등록
 //	public void testWrite() {
 //		StudyBoardVO vo = new StudyBoardVO();
 //		vo.setTitle("JUnit5테스트_제목");
@@ -38,9 +38,10 @@ public class StudyBoardMapperTest {
 //		sBoardMapper.write(vo);
 //	}
 	
-	@Test
-	public void testDelete() {
-		int sno = 5;
-		sBoardMapper.delete(sno);
-	}
+//	@Test	// 공부게시판 게시글삭제
+//	public void testDelete() {
+//		int sno = 5;
+//		sBoardMapper.delete(sno);
+//	}
+	
 }

@@ -22,6 +22,11 @@
 	       VALUES (#{title}, #{content}, #{writer}, 0, 0)
 	</select>
 	
+	<!-- 게시글 수정 -->
+	<update id="modify">
+		UPDATE studyboard SET title = #{title}, content = #{content}, updatedate = now() WHERE sno = #{sno}
+	</update>
+	
 	<delete id="delete">
 		DELETE FROM studyboard WHERE sno = #{sno}
 	</delete>

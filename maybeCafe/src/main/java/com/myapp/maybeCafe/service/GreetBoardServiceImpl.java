@@ -29,4 +29,9 @@ public class GreetBoardServiceImpl implements GreetBoardService {
 		gBoardMapper.write(gBoardVO);
 	}
 
+	@Override
+	public void delete(int gno) {
+		gBoardMapper.delete(gno);
+	}
+
 }

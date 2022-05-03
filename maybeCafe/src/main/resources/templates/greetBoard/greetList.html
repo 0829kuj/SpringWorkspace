@@ -15,7 +15,7 @@
       <form th:action="@{/greetboard/write}" method="post" th:object="${board}">
         <div>
           <label for="content">내용</label>
-          <textarea th:field="*{content}" required></textarea>
+          <textarea th:field="*{content}" rows="3" required></textarea>
         </div>
         <div>
           <label for="writer">작성자</label>
@@ -41,11 +41,16 @@
             <td><span th:text="${#temporals.format(board.regdate , 'yyyy-MM-dd a hh:mm:ss')}"></span></td>
             <td><span th:text="${board.writer}"></span></td>
             <td><span th:text="${board.content}"></span></td>
-            <td><a th:href="@{/greetboard/delete(gno=${board.gno})}">삭제하기</a></td>
+            <td><a th:href="@{/greetboard/delete(gno=${board.gno})}" onclick="return deleteConfirm();">삭제하기</a></td>
           </tr>
         </tbody>
       </table>
     </div>
+    <script>
+      function deleteConfirm() {
+        return confirm('삭제하시겠습니까?');
+      }
+    </script>
     <script th:if="${message}">
       let m = '[[${message}]]'; // 리다이렉트로 넘어온 메시지 저장
       alert(m); // 화면에 메시지 띄우기

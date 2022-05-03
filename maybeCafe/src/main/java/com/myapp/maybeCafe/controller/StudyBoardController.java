@@ -49,6 +49,19 @@ public class StudyBoardController {
 		return "redirect:/studyboard/list";
 	}
 	
+	@GetMapping("/modify")
+	public String studyModifyGET(@RequestParam("sno") int sno, Model model) {
+		model.addAttribute("board", sBoardService.getPage(sno));
+		return "studyBoard/studyModify";
+	}
+	
+	@PostMapping("/modify")
+	public String studyModifyPOST(StudyBoardVO board, RedirectAttributes attr) {
+		sBoardService.modify(board);
+		attr.addFlashAttribute("message", "수정이 완료되었습니다.");
+		return "redirect:/studyboard/list";
+	}
+	
 	@GetMapping("/delete")
 	public String studyDeleteGET(@RequestParam("sno") int sno, RedirectAttributes attr) {
 		sBoardService.delete(sno);

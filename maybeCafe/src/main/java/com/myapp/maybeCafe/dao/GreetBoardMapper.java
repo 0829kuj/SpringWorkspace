@@ -10,4 +10,5 @@ import com.myapp.maybeCafe.model.GreetBoardVO;
 public interface GreetBoardMapper {
 	public List<GreetBoardVO> getGreetBoardList();	// 가입인사 모두 가져오기
 	public void write(GreetBoardVO gBoardVO);	// 가입인사 작성
+	public void delete(int gno);				// 가입인사 삭제
 }

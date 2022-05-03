@@ -24,9 +24,14 @@ public class GreetBoardMapperTest {
 	@Autowired
 	private GreetBoardMapper gBoardMapper;
 	
+//	@Test
+//	public void testGetGreetBoardList() {
+//		List<GreetBoardVO> list = gBoardMapper.getGreetBoardList();
+//		list.forEach(board -> log.info("" + board));
+//	}
+	
 	@Test
-	public void testGetGreetBoardList() {
-		List<GreetBoardVO> list = gBoardMapper.getGreetBoardList();
-		list.forEach(board -> log.info("" + board));
+	public void testDeleteGreetBoard() {
+		gBoardMapper.delete(4);
 	}
 }

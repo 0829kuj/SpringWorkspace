@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>글 작성 페이지</title>
+    <title>글 수정 페이지</title>
   </head>
   <body>
     <div>
-      <h4>새로운 게시글 작성</h4>
-      <form th:action="@{/studyboard/write}" method="post" th:object="${board}">
+      <h4>게시글 수정</h4>
+      <form th:action="@{/studyboard/modify}" method="post" th:object="${board}">
+        <input type="hidden" th:field="*{sno}" />
         <div>
           <label for="title">제목</label>
           <input type="text" th:field="*{title}" required />
@@ -22,7 +23,7 @@
           <label for="writer">작성자</label>
           <input type="text" th:field="*{writer}" required />
         </div>
-        <button type="submit">작성하기</button>
+        <button type="submit">수정하기</button>
       </form>
     </div>
     <div>

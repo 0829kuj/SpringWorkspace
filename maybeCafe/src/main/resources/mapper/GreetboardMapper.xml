@@ -16,6 +16,6 @@
 	</select>
 	
 	<delete id="delete">
-		DELETE FROM studyboard WHERE sno = #{sno}
+		DELETE FROM greetboard WHERE gno = #{gno}
 	</delete>
 </mapper>
