@@ -11,6 +11,19 @@
 		SELECT * FROM studyboard ORDER BY sno DESC
 	</select>
 	
+	<!-- 페이징 적용 게시판 목록 -->
+	<select id="getListPaging" resultType="StudyBoardVO">
+		SELECT * FROM (
+			SELECT sno, title, writer, regdate, updatedate, hit, like_no
+			FROM studyboard ORDER BY sno DESC) as T1
+		LIMIT #{skip}, #{amount}
+	</select>
+	
+	<!-- 게시글 총 갯수 -->
+	<select id="getTotal" resultType="int">
+		SELECT count(*) FROM studyboard
+	</select>
+	
 	<!-- 단일 게시글 조회 -->
 	<select id="getPage" resultType="StudyBoardVO">
 		select * from studyboard WHERE sno = #{sno}

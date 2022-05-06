@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>공부 게시판</title>
+    <style>
+      .active {
+        font: bold;
+        color: cornflowerblue;
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -35,6 +41,27 @@
         </tbody>
       </table>
     </div>
+
+    <nav th:if="${pmk.endPage > 0}">
+      <ul>
+        <li>
+          <a href="javascript:;">
+            <span>이전</span>
+          </a>
+        </li>
+
+        <li class="page-item" th:each="number : ${#numbers.sequence(pmk.startPage, pmk.endPage)}">
+          <a class="page-link" th:href="@{/studyboard/list} + '?pageNum=__${number}__'" th:text="${number}"></a>
+        </li>
+        <!-- th:classappend="${pmk.page.pageNum == number} ? 'active' : '' " -->
+
+        <li>
+          <a href="javascript:;">
+            <span>다음</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
     <script th:if="${message}">
       let m = '[[${message}]]'; // 리다이렉트로 넘어온 메시지 저장
       alert(m); // 화면에 메시지 띄우기

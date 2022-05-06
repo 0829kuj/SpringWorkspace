@@ -1,5 +1,7 @@
 package com.myapp.maybeCafe.dao;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.test.annotation.Rollback;
 
 import com.myapp.maybeCafe.dao.StudyBoardMapperTest;
+import com.myapp.maybeCafe.model.PageVO;
 import com.myapp.maybeCafe.model.StudyBoardVO;
 
 import lombok.extern.java.Log;
@@ -43,5 +46,18 @@ public class StudyBoardMapperTest {
 //		int sno = 5;
 //		sBoardMapper.delete(sno);
 //	}
+	
+//	@Test	// 페이징 적용 테스트
+//	public void testGetListPaging() {
+//		PageVO page = new PageVO(2, 5);
+//		List<StudyBoardVO> list = sBoardMapper.getListPaging(page);
+//		list.forEach(board -> log.info("" + board));
+//	}
+	
+	@Test	// 총 게시글 구하기
+	public void testGetTotal() {
+		int result = sBoardMapper.getTotal();
+		log.info("총 게시글 수: " + result);
+	}
 	
 }

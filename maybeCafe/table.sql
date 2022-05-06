@@ -18,9 +18,10 @@ insert into studyboard(title, content, writer, hit, like_no) values ('테스트 
 insert into studyboard(title, content, writer, hit, like_no) values ('테스트 제목4', '테스트 내용4', '작가4', 0, 0);
 insert into studyboard(title, content, writer, hit, like_no) values ('테스트 제목5', '테스트 내용5', '작가5', 0, 0);
 
-select * from studyboard;
+select * from studyboard ORDER BY sno DESC;
 
 select * from studyboard WHERE sno = 1;
+SELECT count(*) FROM studyboard;
 
 # 유저테이블
 

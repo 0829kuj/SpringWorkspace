@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.myapp.maybeCafe.dao.StudyBoardMapper;
+import com.myapp.maybeCafe.model.PageVO;
 import com.myapp.maybeCafe.model.StudyBoardVO;
 
 @Service
@@ -22,6 +23,19 @@ public class StudyBoardServiceImpl implements StudyBoardService{
 		// 공부게시판 전체 가져오기
 		return sBoardMapper.getStudyBoardList();
 	}
+
+	@Override
+	public List<StudyBoardVO> getListPaging(PageVO page) {
+		// 페이징 적용 공부게시판 전체 가져오기 
+		return sBoardMapper.getListPaging(page);
+	}
+
+	@Override
+	public int getTotal() {
+		// 전체 게시글 수
+		return sBoardMapper.getTotal();
+	}
+
 
 	@Override
 	public StudyBoardVO getPage(int sno) {
@@ -45,6 +59,7 @@ public class StudyBoardServiceImpl implements StudyBoardService{
 	public void modify(StudyBoardVO sBoardVO) {
 		sBoardMapper.modify(sBoardVO);
 	}
+
 
 
 }

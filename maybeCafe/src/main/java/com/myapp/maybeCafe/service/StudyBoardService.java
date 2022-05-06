@@ -2,6 +2,7 @@ package com.myapp.maybeCafe.service;
 
 import java.util.List;
 
+import com.myapp.maybeCafe.model.PageVO;
 import com.myapp.maybeCafe.model.StudyBoardVO;
 
 public interface StudyBoardService {
@@ -15,5 +16,7 @@ public interface StudyBoardService {
 	
 	public void delete(int sno);	// 게시글 삭제
 	
-
+	public List<StudyBoardVO> getListPaging(PageVO page);	// 페이징 적용 게시글목록
+	
+	public int getTotal();		// 게시글 총 갯수
 }

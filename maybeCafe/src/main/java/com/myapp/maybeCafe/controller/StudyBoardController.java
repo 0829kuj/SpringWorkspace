@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.myapp.maybeCafe.model.PageMakerDTO;
+import com.myapp.maybeCafe.model.PageVO;
 import com.myapp.maybeCafe.model.StudyBoardVO;
 import com.myapp.maybeCafe.service.StudyBoardService;
 
@@ -24,9 +26,23 @@ public class StudyBoardController {
 		this.sBoardService = studyBoardService;
 	}
 
-	@GetMapping("list")
-	public String studyListGET(Model model) {
-		model.addAttribute("studyboard", sBoardService.getStudyBoardList());
+//	@GetMapping("/list")
+//	public String studyListGET(Model model) {
+//		model.addAttribute("studyboard", sBoardService.getStudyBoardList());
+//		return "studyBoard/studyList";
+//	}
+	
+	@GetMapping("/list")
+	public String studyListGET(PageVO page, Model model) {
+		model.addAttribute("studyboard", sBoardService.getListPaging(page));
+		
+		int total = sBoardService.getTotal();
+		PageMakerDTO pmk = new PageMakerDTO(total, page);
+		
+		System.out.println(pmk);
+		System.out.println(page.getPageNum());
+		
+		model.addAttribute("pmk", pmk);
 		return "studyBoard/studyList";
 	}
 
