@@ -10,6 +10,18 @@
 		SELECT * FROM greetboard ORDER BY gno DESC
 	</select>
 	
+	<!-- 페이징 적용 게시판 목록 -->
+	<select id="getListPaging" resultType="GreetBoardVO">
+		SELECT * FROM (
+			SELECT gno, content, writer, regdate
+			FROM greetboard ORDER BY gno DESC) as T1
+		LIMIT #{skip}, #{amount}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT count(*) FROM greetboard
+	</select>
+	
 	<select id="write" resultType="GreetBoardVO">
 		INSERT INTO greetboard(content, writer)
 			VALUES (#{content}, #{writer})

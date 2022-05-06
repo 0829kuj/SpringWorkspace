@@ -30,5 +30,4 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 		System.out.println("LoginInterceptor # preHandle() : 인증됨");
 		return true;
 	}
-	
 }

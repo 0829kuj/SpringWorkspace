@@ -62,6 +62,9 @@ public class BoardController {
 		int total = boardService.getTotal(cri);
 		PageMakerDTO pmk = new PageMakerDTO(total, cri);	// 객체 생성 시 모든 변수 계산됨
 		
+		System.out.println(pmk.isPrev());
+		System.out.println(pmk.isNext());
+		
 		model.addAttribute("pmk", pmk);		// 페이지네이션을 위한 pmk객체 전달
 		
 		return "list";

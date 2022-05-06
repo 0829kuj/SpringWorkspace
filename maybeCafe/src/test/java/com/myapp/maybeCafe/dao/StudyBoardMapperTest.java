@@ -54,10 +54,12 @@ public class StudyBoardMapperTest {
 //		list.forEach(board -> log.info("" + board));
 //	}
 	
-	@Test	// 총 게시글 구하기
-	public void testGetTotal() {
-		int result = sBoardMapper.getTotal();
-		log.info("총 게시글 수: " + result);
-	}
+//	@Test	// 총 게시글 구하기
+//	public void testGetTotal() {
+//		int result = sBoardMapper.getTotal();
+//		log.info("총 게시글 수: " + result);
+//	}
+	
+	
 	
 }

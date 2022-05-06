@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.myapp.maybeCafe.dao.GreetBoardMapper;
 import com.myapp.maybeCafe.model.GreetBoardVO;
+import com.myapp.maybeCafe.model.PageVO;
 
 @Service
 public class GreetBoardServiceImpl implements GreetBoardService {
@@ -21,6 +22,19 @@ public class GreetBoardServiceImpl implements GreetBoardService {
 	public List<GreetBoardVO> getGreetBoardList() {
 		// 가입인사 전체 가져오기
 		return gBoardMapper.getGreetBoardList();
+	}
+	
+	@Override
+	public List<GreetBoardVO> getListPaging(PageVO page) {
+		// 페이징 적용 가입인사 전체 가져오기
+//		page.setAmount(5);
+		return gBoardMapper.getListPaging(page);
+	}
+	
+	@Override
+	public int getTotal() {
+		// 전체 가입인사 수
+		return gBoardMapper.getTotal();
 	}
 
 	@Override

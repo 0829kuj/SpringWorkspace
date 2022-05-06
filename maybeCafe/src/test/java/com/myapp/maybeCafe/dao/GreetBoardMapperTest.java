@@ -11,6 +11,7 @@ import org.springframework.test.annotation.Rollback;
 
 import com.myapp.maybeCafe.dao.GreetBoardMapperTest;
 import com.myapp.maybeCafe.model.GreetBoardVO;
+import com.myapp.maybeCafe.model.PageVO;
 import com.myapp.maybeCafe.model.StudyBoardVO;
 
 import lombok.extern.java.Log;
@@ -30,8 +31,21 @@ public class GreetBoardMapperTest {
 //		list.forEach(board -> log.info("" + board));
 //	}
 	
+//	@Test
+//	public void testDeleteGreetBoard() {
+//		gBoardMapper.delete(4);
+//	}
+	
+//	@Test	// 총 게시글 구하기
+//	public void testGetTotal() {
+//		int result = gBoardMapper.getTotal();
+//		log.info("총 게시글 수: " + result);
+//	}
+	
 	@Test
-	public void testDeleteGreetBoard() {
-		gBoardMapper.delete(4);
+	public void testGetListPaging() {
+		PageVO page = new PageVO(1, 5);
+		List<GreetBoardVO> list = gBoardMapper.getListPaging(page);
+		list.forEach(board -> log.info("" + board));
 	}
 }

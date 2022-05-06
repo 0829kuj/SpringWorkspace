@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가입인사</title>
+    <style>
+      .pageNav {
+        list-style-type: none;
+      }
+      .pageNav li {
+        float: left;
+        margin-right: 10px;
+      }
+      .active {
+        font: bold;
+        color: tomato;
+      }
+    </style>
   </head>
   <body>
-    <h3>가입인사</h3>
+    <h2>가입인사</h2>
     <div>
       <p><a th:href="@{/}">메인페이지</a></p>
     </div>
@@ -46,6 +59,27 @@
         </tbody>
       </table>
     </div>
+
+    <nav th:if="${pmk.endPage > 0}">
+      <ul class="pageNav">
+        <li th:if="${pmk.prev}">
+          <a th:href="@{/greetboard/list} + '?pageNum=__${pmk.startPage - 1}__'" aria-label="이전">
+            <span>이전</span>
+          </a>
+        </li>
+
+        <li class="page-item" th:each="number : ${#numbers.sequence(pmk.startPage, pmk.endPage)}">
+          <a class="page-link" th:href="@{/greetboard/list} + '?pageNum=__${number}__'" th:classappend="${page.pageNum == number} ? 'active' : '' " th:text="${number}"></a>
+        </li>
+
+        <li th:if="${pmk.next}">
+          <a th:href="@{/greetboard/list} + '?pageNum=__${pmk.endPage + 1}__'" aria-label="다음">
+            <span>다음</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <script>
       function deleteConfirm() {
         return confirm('삭제하시겠습니까?');

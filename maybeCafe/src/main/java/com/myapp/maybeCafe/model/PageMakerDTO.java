@@ -16,13 +16,13 @@ public class PageMakerDTO {
 		
 		// 마지막 페이지(현제 페이지네이션바의 마지막 숫자): 10 단위로 표시 1~10, 11~20
 		// Math.ceil은 올림함수
-		this.endPage = (int)(Math.ceil(pageVo.getPageNum() / 10.0)) * 10;
+		this.endPage = (int)(Math.ceil(page.getPageNum() / 10.0)) * 10;
 		
 		// 시작 페이지
 		this.startPage = this.endPage - 9;
 		
 		// 실제 마지막 페이지 (총 마지막 페이지)
-		int realEnd = (int)(Math.ceil(total * 1.0 / pageVo.getAmount()));
+		int realEnd = (int)(Math.ceil(total * 1.0 / page.getAmount()));
 		
 		// 전체 마지막 페이지(realEnd)가 화면에 보이는 마지막 페이지(endPage)보다 작은 경우
 		if (realEnd < this.endPage) {
@@ -35,6 +35,5 @@ public class PageMakerDTO {
 		// < 다음페이지 참? 마지막 페이지(endPage)값이 1보다 큰 경우 true
 		this.next = this.endPage < realEnd;
 	}
-	
-	
+
 }

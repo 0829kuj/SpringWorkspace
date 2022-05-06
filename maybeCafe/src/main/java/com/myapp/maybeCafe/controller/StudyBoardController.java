@@ -39,10 +39,8 @@ public class StudyBoardController {
 		int total = sBoardService.getTotal();
 		PageMakerDTO pmk = new PageMakerDTO(total, page);
 		
-		System.out.println(pmk);
-		System.out.println(page.getPageNum());
-		
 		model.addAttribute("pmk", pmk);
+		model.addAttribute("page", page);
 		return "studyBoard/studyList";
 	}
 
